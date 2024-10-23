@@ -1,2 +1,2 @@
 # VSB
-# moje programy a ukoly z vsb
+moje programy a ukoly z vsb
