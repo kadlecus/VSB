@@ -2,35 +2,31 @@
 bin/
 obj/
 
-# Editor / IDE
 .vs/
 .vscode/
 .idea/
 
-# Uživatelské / dočasné soubory
 *.user
 *.suo
 *.log
 *.tmp
 
-# Environment / secrets
+# Environment
 *.env
 
 # Python
 __pycache__/
 *.pyc
 
-# Web / Node.js
+
 node_modules/
 dist/
 
-# Velké knihovny a assety
 3-year/ZPG/ZPG/lib/assimp/
 3-year/ZPG/ZPG/lib/glew-2.1.0-win32/
 3-year/ZPG/ZPG/lib/glfw-3.4.bin.WIN64/
 3-year/ZPG/ZPG/lib/glm-1.0.1-light/
 3-year/ZPG/ZPG/lib/glm-master/
 
-# Assety / modely / textury
 3-year/ZPG/ZPG/Models/assets/
 3-year/ZPG/ZPG/Textures/
