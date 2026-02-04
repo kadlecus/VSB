@@ -1,0 +1,25 @@
+﻿@{
+}
+
+<div class="container mt-5" style="max-width: 450px;">
+    <h2 class="mb-4 text-center">Úprava rezervace</h2>
+
+    <form action="@Url.Action("EditReservation", "Account")" method="post">
+        <div class="mb-3">
+            <label for="startTime" class="form-label fw-semibold text-primary">Začátek rezervace</label>
+            <input type="datetime-local" class="form-control border-primary" id="startTime" name="StartTime" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="endTime" class="form-label fw-semibold text-primary">Konec rezervace</label>
+            <input type="datetime-local" class="form-control border-primary" id="endTime" name="EndTime" required />
+        </div>
+
+        <div class="mb-3">
+            <label for="licensePlate" class="form-label fw-semibold">Poznávací značka vozidla</label>
+            <input type="text" class="form-control" id="licensePlate" name="LicensePlate" />
+        </div>
+
+        <button type="submit" class="btn btn-primary w-100">Uložit změny</button>
+    </form>
+</div>

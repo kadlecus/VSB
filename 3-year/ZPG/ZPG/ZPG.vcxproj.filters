@@ -1,0 +1,202 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Hlavičkové soubory">
+      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
+      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
+    </Filter>
+    <Filter Include="Soubory zdrojů">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Shaders">
+      <UniqueIdentifier>{2fd75a69-22dc-4bcb-a606-f0814528d359}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\FragmentShaders">
+      <UniqueIdentifier>{42f05aa7-1da7-4e7c-b1e5-fd93fcbba922}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Shaders\VertexShader">
+      <UniqueIdentifier>{494e04da-7bc2-432e-95dc-1c4b766d5fc2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Soubory zdrojů\Zdrojové soubory">
+      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
+      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="main.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Application.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Model.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="DrawableObject.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Camera.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Controller.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="Texture.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+    <ClCompile Include="CubemapTexture.cpp">
+      <Filter>Soubory zdrojů\Zdrojové soubory</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Model.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="DrawableObject.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Transformation.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Scene.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Camera.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Controller.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformationComponent.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Translate.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Scale.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Rotate.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="IObserver.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Light.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Callback_function.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="LightManager.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="PointLight.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="DirectionalLight.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="SpotLight.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Texture.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="AppContext.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="CustomTransform.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="ArcadeScene.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="PathMove.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="Material.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="CubemapTexture.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="SkyboxObject.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierSpline.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+    <ClInclude Include="BezierSplineMove.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Text Include="lambertALL.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="vertexShader_light.txt">
+      <Filter>Shaders\VertexShader</Filter>
+    </Text>
+    <Text Include="vertexShaders.txt">
+      <Filter>Shaders\VertexShader</Filter>
+    </Text>
+    <Text Include="constantALl.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="phongALL.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="blinnALL.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="phonNoTex.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="vertexNoTex.txt">
+      <Filter>Shaders\VertexShader</Filter>
+    </Text>
+    <Text Include="space.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="const_texture.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="lambertAllTex.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="fragmentShaders.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </Text>
+    <Text Include="cubeboxVer.txt">
+      <Filter>Shaders\VertexShader</Filter>
+    </Text>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="ISubject.h">
+      <Filter>Hlavičkové soubory</Filter>
+    </None>
+    <None Include="cubebox.txt">
+      <Filter>Shaders\FragmentShaders</Filter>
+    </None>
+  </ItemGroup>
+</Project>

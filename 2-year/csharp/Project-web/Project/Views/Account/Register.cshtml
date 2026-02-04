@@ -1,0 +1,42 @@
+﻿@{
+}
+
+<div class="container mt-5" style="max-width: 400px;">
+    <h2 class="mb-4 text-center">Registrace</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form asp-action="Register" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Uživatelské jméno</label>
+                    <input type="text" class="form-control" id="username" name="Username" placeholder="Uživatelské jméno" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="email" class="form-label">Email</label>
+                    <input type="email" class="form-control" id="email" name="Email" placeholder="Zadejte email" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Heslo</label>
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Heslo" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="passwordCheck" class="form-label">Zopakujte heslo</label>
+                    <input type="password" class="form-control" id="passwordCheck" name="PasswordCheck" placeholder="Zopakujte heslo" required />
+                </div>
+
+
+                <button type="submit" class="btn btn-success w-100">Registrovat</button>
+            </form>
+        </div>
+    </div>
+    @if (TempData["Error"] != null)
+    {
+        <div class="alert alert-danger mt-3" role="alert">
+            @TempData["Error"]
+        </div>
+    }
+</div>

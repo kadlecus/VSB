@@ -1,0 +1,33 @@
+﻿@{
+}
+
+<div class="container mt-5" style="max-width: 450px;">
+    <h2 class="mb-4 text-center">Vytvořit rezervaci</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form action="@Url.Action("Reservation", new { id = ViewBag.ParkingLotId })" method="post">
+                <input type="hidden" name="parkingLotId" value="@ViewBag.ParkingLotId" />
+
+                <div class="mb-3">
+                    <label for="startTime" class="form-label fw-semibold text-primary">Začátek rezervace</label>
+                    <input type="datetime-local" id="startTime" name="startTime" class="form-control border-primary" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="endTime" class="form-label fw-semibold text-primary">Konec rezervace</label>
+                    <input type="datetime-local" id="endTime" name="endTime" class="form-control border-primary" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="licensePlate" class="form-label fw-semibold">Poznávací značka vozidla</label>
+                    <input type="text" id="licensePlate" name="licensePlate" class="form-control" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100">Zarezervovat</button>
+            </form>
+
+        </div>
+    </div>
+</div>

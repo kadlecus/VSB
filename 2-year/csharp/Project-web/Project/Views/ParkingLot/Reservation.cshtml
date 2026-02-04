@@ -1,0 +1,42 @@
+﻿@model ReservationViewModel
+
+<div class="container mt-5">
+
+    @if (!string.IsNullOrEmpty(Model.Message))
+    {
+        var isSuccess = Model.Reservation != null;
+
+        <div class="alert @(isSuccess ? "alert-success" : "alert-danger") alert-dismissible fade show" role="alert">
+            <h3 class="mb-3">@Model.Message</h3>
+
+            @if (isSuccess)
+            {
+                <h5>Rezervace uživatele: <strong>@Model.Reservation.UserEmail</strong></h5>
+
+                <div class="table-responsive mt-4">
+                    <table class="table table-bordered table-striped">
+                        <thead class="table-dark">
+                            <tr>
+                                <th>SPZ</th>
+                                <th>Začátek rezervace</th>
+                                <th>Konec rezervace</th>
+                                <th>Cena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td>@Model.Reservation.LicensePlate</td>
+                                <td>@Model.Reservation.StartTime.ToString("g")</td>
+                                <td>@Model.Reservation.EndTime.ToString("g")</td>
+                                <td>@Model.Reservation.Price Kč</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            }
+
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+        </div>
+    }
+
+</div>

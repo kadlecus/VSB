@@ -1,0 +1,24 @@
+#version 330 core
+
+layout(location = 0) in vec3 vp; 
+layout(location = 1) in vec3 vn; 
+
+uniform mat4 modelMatrix;
+uniform mat4 viewMatrix;
+uniform mat4 projectionMatrix;
+
+out vec3 worldPosition;
+out vec3 worldNormal;
+
+void main()
+{
+    float w = 500.0;
+    vec4 pos =  vec4(vp * w, w);
+
+    vec4 worldPos = modelMatrix * pos;
+    worldPosition = worldPos.xyz / worldPos.w;
+
+    worldNormal = mat3(transpose(inverse(modelMatrix))) * vn;
+
+    gl_Position = projectionMatrix * viewMatrix * worldPos;
+}

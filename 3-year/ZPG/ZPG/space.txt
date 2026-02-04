@@ -1,0 +1,106 @@
+#version 330 core
+
+in vec3 worldPosition;
+in vec3 worldNormal;
+in vec2 TexCoord;
+
+out vec4 out_Color;
+
+struct Light {
+    int type;              // 0 = point, 1 = directional, 2 = spotlight
+    vec3 position;
+    vec3 direction;
+    vec3 color;
+    float intensity;
+    float cutOff;         
+};
+
+struct Material {
+    float ra;          
+    float rd;          
+    float rs;          
+    float shininess;
+};
+
+uniform Material material;
+
+#define MAX_LIGHTS 10
+
+uniform int numLights;
+uniform Light lights[MAX_LIGHTS];
+uniform vec3 objectColor;
+uniform vec3 viewPosition;
+
+uniform sampler2D samplerTexture;
+
+uniform vec3 ambientColor = vec3(0.5, 0.5, 0.5);
+uniform float ambientIntensity = 0.15;
+
+void main()
+{
+    vec3 N = normalize(worldNormal);
+    vec3 V = normalize(viewPosition - worldPosition);
+
+    // Ambient
+    vec3 ambient = material.ra * ambientColor * ambientIntensity;
+    vec3 result = ambient * objectColor;
+
+    float shininess = material.shininess;
+
+    for (int i = 0; i < numLights; ++i)
+    {
+        vec3 L;
+        float intensityFactor = 1.0;
+
+        if (lights[i].type == 0)
+        {
+            // ----------- POINT LIGHT -----------
+            L = normalize(lights[i].position - worldPosition);
+        }
+        else if (lights[i].type == 1)
+        {
+            // ----------- DIRECTIONAL LIGHT -----------
+            L = normalize(-lights[i].direction);
+        }
+        else if (lights[i].type == 2)
+        {
+            // ----------- SPOTLIGHT -----------
+            vec3 lightDir = normalize(lights[i].position - worldPosition);
+            L = lightDir;
+
+           
+            float theta = dot(lightDir, normalize(-lights[i].direction));
+
+            float epsilon = 0.05;
+            intensityFactor = smoothstep(lights[i].cutOff - epsilon,
+                                         lights[i].cutOff,
+                                         theta);
+
+          
+            float distance = length(lights[i].position - worldPosition);
+            float attenuation = 1.0 / (1.0 + 0.09 * distance + 0.032 * distance * distance);
+            intensityFactor *= attenuation;
+
+            if (intensityFactor <= 0.0001)
+                continue;
+        }
+
+        // Diffuse
+         float diff = max(dot(N, L), 0.0);
+        vec3 diffuse = material.rd * diff * lights[i].color * lights[i].intensity * intensityFactor;
+
+
+       vec3 specular = vec3(0.0);
+        if(diff > 0){
+            vec3 R = reflect(-L, N);
+            float spec = pow(max(dot(R, V), 0.0), shininess);
+            specular = material.rs * spec * lights[i].color * lights[i].intensity * intensityFactor;
+
+        }
+
+        result += diffuse + specular;
+    }
+
+    vec3 texColor = texture(samplerTexture, TexCoord).rgb;
+    out_Color = vec4(result * texColor * objectColor, 1.0);
+}

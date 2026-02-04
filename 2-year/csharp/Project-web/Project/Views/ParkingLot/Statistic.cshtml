@@ -1,0 +1,28 @@
+﻿@{
+}
+
+<div class="container mt-5">
+    <h2 class="mb-4">Statistika ukončených parkování za poslední měsíc</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <table class="table table-striped table-hover">
+                <thead class="table-dark">
+                    <tr>
+                        <th>Parkoviště (ID)</th>
+                        <th>Počet ukončených parkování</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach (var item in ViewBag.Stats)
+                    {
+                        <tr>
+                            <td>@item.ParkingLotId</td>
+                            <td>@item.Completed</td>
+                        </tr>
+                    }
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>

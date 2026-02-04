@@ -1,0 +1,91 @@
+﻿@{
+}
+
+<div class="container mt-5">
+
+    <h2 class="mb-4">Aktivní rezervace</h2>
+
+    @if (ViewBag.UserReservation != null && ((IEnumerable<ParkingReservation>)ViewBag.UserReservation).Any())
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Parkoviště</th>
+                    <th>ID Místa</th>
+                    <th>SPZ</th>
+                    <th>Začátek</th>
+                    <th>Konec</th>
+                    <th>Cena</th>
+                    <th>Akce</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in (IEnumerable<ParkingReservation>)ViewBag.UserReservation)
+                {
+                    <tr>
+                        <td>@r.ParkingLotName</td>
+                        <td>@r.ParkingSpotId</td>
+                        <td>@r.LicensePlate</td>
+                        <td>@r.StartTime.ToString("g")</td> 
+                        <td>@r.EndTime.ToString("g")</td>
+                        <td>@r.Price Kč</td>
+                        <td>
+                            <a asp-action="EditReservation" asp-route-id="@r.Id" class="btn btn-sm btn-warning me-2">Upravit</a>
+                            <a asp-action="DeleteReservation" asp-route-reservationId="@r.Id" class="btn btn-sm btn-danger"
+                               onclick="return confirm('Opravdu chcete tuto rezervaci smazat?');">
+                                Smazat
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+
+        @if (TempData["Success"] != null)
+        {
+            <div class="alert alert-success">@TempData["Success"]</div>
+        }
+        else if (TempData["Error"] != null)
+        {
+            <div class="alert alert-danger">@TempData["Error"]</div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-info">Nemáte žádné aktivní rezervace.</div>
+    }
+
+    <h2 class="mt-5 mb-4">Historie rezervací</h2>
+
+    @if (ViewBag.UserHistoryReservation != null && ((IEnumerable<ParkingReservation>)ViewBag.UserHistoryReservation).Any())
+    {
+        <table class="table table-striped table-hover">
+            <thead class="table-dark">
+                <tr>
+                    <th>Parkoviště</th>
+                    <th>ID Místa</th>
+                    <th>Začátek</th>
+                    <th>Konec</th>
+                    <th>Cena</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var r in (IEnumerable<ParkingReservation>)ViewBag.UserHistoryReservation)
+                {
+                    <tr>
+                        <td>@r.ParkingLotName</td>
+                        <td>@r.ParkingSpotId</td>
+                        <td>@r.StartTime.ToString("g")</td>
+                        <td>@r.EndTime.ToString("g")</td>
+                        <td>@r.Price Kč</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+    }
+    else
+    {
+        <div class="alert alert-info">Žádná historie rezervací.</div>
+    }
+
+</div>

@@ -1,0 +1,4 @@
+Vytvořil jsem jednoduchou scénu kde jsem přidal Plain a Formuli kterou jsem rotoval o 90 stupňů. Formuli jsem přidal transformaci BezierSPlineMove a předal mu předpřipravene body.
+
+Formule tak začala jezdit dokola v jednom směru.
+

@@ -1,0 +1,17 @@
+#version 330 core
+
+in vec3 worldPosition;
+in vec3 worldNormal;
+in vec2 TexCoord;
+
+out vec4 out_Color;
+
+uniform vec3 objectColor;
+uniform sampler2D samplerTexture;
+
+void main()
+{
+    vec3 texColor = texture(samplerTexture, TexCoord).rgb;
+
+    out_Color = vec4(texColor * objectColor, 1.0);
+}

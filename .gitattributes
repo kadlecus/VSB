@@ -1,0 +1,60 @@
+# C++ a C#
+*.cpp   text eol=lf
+*.h     text eol=lf
+*.hpp   text eol=lf
+*.cs    text eol=lf
+
+# Web
+*.html  text eol=lf
+*.htm   text eol=lf
+*.css   text eol=lf
+*.js    text eol=lf
+*.ts    text eol=lf
+*.json  text eol=lf
+*.xml   text eol=lf
+*.md    text eol=lf
+
+# Konfigurační soubory
+*.yml   text eol=lf
+*.yaml  text eol=lf
+*.gitignore text eol=lf
+*.editorconfig text eol=lf
+
+# -----------------------------
+# Binární soubory (ignorovat konce řádků)
+# -----------------------------
+*.png   binary
+*.jpg   binary
+*.jpeg  binary
+*.gif   binary
+*.bmp   binary
+*.ico   binary
+*.tga   binary
+
+# 3D modely a assets
+*.obj   binary
+*.mtl   binary
+*.fbx   binary
+*.stl   binary
+*.dae   binary
+*.blend binary
+
+# Knihovny a kompilované soubory
+*.dll   binary
+*.lib   binary
+*.a     binary
+*.so    binary
+*.exe   binary
+*.o     binary
+*.obj   binary
+*.vsix  binary
+*.pdb   binary
+
+# GLFW a Assimp knihovny (binárky + docs)
+*.zip   binary
+*.bin   binary
+
+# -----------------------------
+# Speciální ignorace Visual Studio složek
+# -----------------------------
+.vs/** binary

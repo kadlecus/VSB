@@ -1,0 +1,34 @@
+PRAGMA foreign_keys = ON;
+
+CREATE TABLE ParkingLots (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    Name TEXT NOT NULL,
+    Latitude REAL NOT NULL,
+    Longitude REAL NOT NULL
+);
+
+CREATE TABLE ParkingSpots (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ParkingLotId INTEGER NOT NULL,
+    Status TEXT NOT NULL,
+    FOREIGN KEY (ParkingLotId) REFERENCES ParkingLots(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE ParkingSpotHistory (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ParkingSpotId INTEGER NOT NULL,
+    Status TEXT NOT NULL, 
+    ChangeTime DATETIME DEFAULT CURRENT_TIMESTAMP, 
+    FOREIGN KEY (ParkingSpotId) REFERENCES ParkingSpots(Id) ON DELETE CASCADE
+);
+
+CREATE TABLE ParkingReservation (
+    Id INTEGER PRIMARY KEY AUTOINCREMENT,
+    ParkingSpotId INTEGER NOT NULL,
+    LicensePlate TEXT NOT NULL,
+    StartTime DATETIME DEFAULT CURRENT_TIMESTAMP,
+    EndTime DATETIME,
+    Duration INTEGER, 
+    Price REAL, 
+    FOREIGN KEY (ParkingSpotId) REFERENCES ParkingSpots(Id) ON DELETE CASCADE
+);

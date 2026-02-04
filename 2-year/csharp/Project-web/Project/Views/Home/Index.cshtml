@@ -1,0 +1,55 @@
+﻿@{
+    ViewData["Title"] = "Domů";
+    string a = ViewBag.Title;
+}
+@if (TempData["Log"] != null)
+{
+    <div class="alert alert-info mt-4" role="alert">
+        <strong>@TempData["Log"]</strong>
+    </div>
+    
+}
+
+
+<div class="container mt-5">
+   
+    <div class="text-center">
+        <h1 class="display-4">Vítejte v systému pro rezervaci parkovacích míst</h1>
+        <p class="lead">Jednoduše sledujte a spravujte své parkovací rezervace.</p>
+    </div>
+
+   
+    <div class="row mt-4">
+        <div class="col-md-6 offset-md-3">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Návod</h5>
+                    <p class="card-text">Zjistěte jak vytvořit rezervaci zde.</p>
+                    <a href="@Url.Action("Privacy", "Home")" class="btn btn-outline-info">Přečíst si návod</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row mt-5">
+        <div class="col-md-6">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Moje rezervace</h5>
+                    <p class="card-text">Zobrazte, upravujte nebo zrušte své aktuální rezervace.</p>
+                    <a href="@Url.Action("Detail", "Account")" class="btn btn-outline-info">Zobrazit rezervace</a>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-md-6 mt-4 mt-md-0">
+            <div class="card shadow-sm">
+                <div class="card-body text-center">
+                    <h5 class="card-title">Seznam parkovišť</h5>
+                    <p class="card-text">Prohlédněte si dostupná parkoviště a jejich aktuální stav.</p>
+                    <a href="@Url.Action("Index", "ParkingLot")" class="btn btn-outline-info">Prohlédnout parkoviště</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

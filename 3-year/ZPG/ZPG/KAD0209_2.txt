@@ -1,0 +1,16 @@
+BezierSplineMove pohybuje objektem po
+Bézierově spline. V update(dt) se zvyšuje parametr t podle rychlosti a po
+dosažení hodnoty 1 se vrácí zpět na začátek. V apply() se podle t
+vyhodnotí aktuální pozice a zároveň tečný vektor, ze kterého se vypočítají
+forward, right a up vektory. Z nich se sestaví 3D rotační matice, takže se
+objekt nejen posouvá po křivce, ale zároveň se správně natáčí podle směru.
+
+
+Mám dva typy použití
+
+Konstruktor s předanou splinou
+   objekt se hned může začít pohybovat po staticky dané křivce.
+Napojení přes Controller
+    uživatel klikáním vytváří body, Controller vytvoří BezierSpline z těchto
+     bodů a při výběru objektu se spline pošle do BezierSplineMove, takže objekt
+     začne jezdit.

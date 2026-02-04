@@ -1,0 +1,131 @@
+﻿<Window x:Class="desktop_projekt.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Správa parkovišť" Height="600" Width="1000">
+    <Grid Margin="10">
+
+        <!-- Seznam parkovišť -->
+        <DataGrid Name="ParkingLotDataGrid"
+                  AutoGenerateColumns="False"
+                  Margin="0,0,10,280"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Název" Binding="{Binding Name}" Width="200"/>
+                <DataGridTextColumn Header="Longitude" Binding="{Binding Longitude}" Width="150"/>
+                <DataGridTextColumn Header="Latitude" Binding="{Binding Latitude}" Width="150"/>
+                <DataGridTextColumn Header="Volná místa" Binding="{Binding FreeSpots}" Width="100"/>
+
+                <DataGridTemplateColumn Header="Detail" Width="80">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Detail"
+                                    Click="DetailButton_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Rezervace" Width="100">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Rezervace"
+                                    Click="ReservationButton_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Přidání místa" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Přidání místa"
+                                    Click="AddSpot_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Tlačítko načtení parkovišť -->
+        <Button Content="Načíst parkoviště"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Top"
+                Margin="0,210,0,0"
+                Width="160"
+                Height="30"
+                Click="LoadParkingLotsButton_Click"/>
+
+        <!-- Seznam míst -->
+        <DataGrid Name="ParkingSpotDataGrid"
+                  AutoGenerateColumns="False"
+                  Margin="0,260,0,40"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  Height="200">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="Stav" Binding="{Binding Status}" Width="100"/>
+                <DataGridTextColumn Header="Dostupnost" Binding="{Binding ManualStatus}" Width="120"/>
+
+                <DataGridTemplateColumn Header="Změnit dostupnost" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Změnit dostupnost"
+                                    Click="EditManualStatus_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Historie" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Historie"
+                                    Click="SpotHistory_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+
+                <DataGridTemplateColumn Header="Odstranit" Width="150">
+                    <DataGridTemplateColumn.CellTemplate>
+                        <DataTemplate>
+                            <Button Content="Odstranit"
+                                    Click="DeleteSpot_Click"
+                                    Tag="{Binding Id}"/>
+                        </DataTemplate>
+                    </DataGridTemplateColumn.CellTemplate>
+                </DataGridTemplateColumn>
+            </DataGrid.Columns>
+        </DataGrid>
+
+        <!-- Historie změn místa -->
+        <DataGrid Name="ParkingHistorySpotDataGrid"
+                  AutoGenerateColumns="False"
+                  Margin="0,470,0,70"
+                  HorizontalAlignment="Stretch"
+                  VerticalAlignment="Top"
+                  Height="100">
+            <DataGrid.Columns>
+                <DataGridTextColumn Header="ID" Binding="{Binding Id}" Width="50"/>
+                <DataGridTextColumn Header="SpotId" Binding="{Binding ParkingSpotId}" Width="50"/>
+                <DataGridTextColumn Header="LotId" Binding="{Binding ParkingLotId}" Width="50"/>
+                <DataGridTextColumn Header="Stav" Binding="{Binding NewStatus}" Width="100"/>
+                <DataGridTextColumn Header="Změna" Binding="{Binding ChangedAt}" Width="120"/>
+            </DataGrid.Columns>
+        </DataGrid>
+
+      
+        <Button Content="Zobrazit rezervace"
+                HorizontalAlignment="Left"
+                VerticalAlignment="Bottom"
+                Margin="0,0,0,0"
+                Width="160"
+                Height="30"
+                Click="ShowAllReservations_Click"/>
+    </Grid>
+</Window>

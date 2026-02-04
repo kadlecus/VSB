@@ -1,0 +1,36 @@
+﻿@{
+}
+
+<div class="container mt-5" style="max-width: 420px;">
+    <h2 class="mb-4 text-center">Přihlášení</h2>
+
+    <div class="card shadow-sm">
+        <div class="card-body">
+
+            <form asp-action="Login" method="post">
+                <div class="mb-3">
+                    <label for="username" class="form-label">Uživatelské jméno nebo Email</label>
+                    <input type="text" class="form-control" id="username" name="UsernameOrEmail" placeholder="např. jméno.příjmení@exampl.com" required />
+                </div>
+
+                <div class="mb-3">
+                    <label for="password" class="form-label">Heslo</label>
+                    <input type="password" class="form-control" id="password" name="Password" placeholder="Zadejte heslo" required />
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mt-2">Přihlásit se</button>
+            </form>
+
+            <p class="mt-3 text-center">
+                Nemáte účet? <a asp-controller="Account" asp-action="Register">Zaregistrujte se zde</a>
+            </p>
+
+            @if (!string.IsNullOrEmpty(ViewBag.Error))
+            {
+                <div class="alert alert-danger text-center mt-3 mb-0" role="alert">
+                    @ViewBag.Error
+                </div>
+            }
+        </div>
+    </div>
+</div>

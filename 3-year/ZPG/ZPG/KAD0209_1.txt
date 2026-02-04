@@ -1,0 +1,5 @@
+Třída BezierSpline řeší výpočet pozice a tečné vektoru na kubické Bézierově křivce
+s libovolným počtem segmentů. Každé čtyři kontrolní body tvoří jeden segment. Pro globální parametr t
+v rozsahu [0,1] si třída sama spočítá, do kterého segmentu parametr spadá,
+přepočítá lokální t a vrátí vypočtený bod. Stejným způsobem vrací i tečný vektor,
+který se používá k natočení objektu do směru pohybu.

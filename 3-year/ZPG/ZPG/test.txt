@@ -1,0 +1,5 @@
+vec3 testLight = vec3(0.0);
+for (int i = 0; i < numLights; ++i)
+    testLight += lights[i].color * lights[i].intensity;
+
+out_Color = vec4(testLight, 1.0);

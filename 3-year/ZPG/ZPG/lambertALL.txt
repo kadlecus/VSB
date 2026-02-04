@@ -1,0 +1,32 @@
+#version 330 core
+
+in vec3 worldPosition;
+in vec3 worldNormal;
+
+out vec4 out_Color;
+
+struct Light {
+    vec3 position;
+    vec3 color;
+    float intensity;
+};
+
+#define MAX_LIGHTS 10
+uniform int numLights;
+uniform Light lights[MAX_LIGHTS];
+uniform vec3 objectColor;
+
+void main()
+{
+    vec3 norm = normalize(worldNormal);
+    vec3 resultColor = vec3(0.0);
+
+    for (int i = 0; i < numLights; ++i)
+    {
+        vec3 lightDir = normalize(lights[i].position - worldPosition);
+        float diff = max(dot(norm, lightDir), 0.0);
+        resultColor += diff * lights[i].color * lights[i].intensity;
+    }
+
+    out_Color = vec4(resultColor * objectColor, 1.0);
+}

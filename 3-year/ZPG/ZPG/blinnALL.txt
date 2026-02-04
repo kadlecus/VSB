@@ -1,0 +1,35 @@
+#version 330 core
+
+in vec3 worldPosition;
+in vec3 worldNormal;
+
+out vec4 out_Color;
+
+struct Light { vec3 position; vec3 color; float intensity; };
+#define MAX_LIGHTS 10
+
+uniform int numLights;
+uniform Light lights[MAX_LIGHTS];
+uniform vec3 objectColor;
+uniform vec3 viewPosition;
+
+void main() {
+    vec3 N = normalize(worldNormal);
+    vec3 V = normalize(viewPosition - worldPosition);
+    vec3 result = vec3(0.0);
+    float shininess = 32.0;
+
+    for (int i = 0; i < numLights; ++i) {
+        vec3 L = normalize(lights[i].position - worldPosition);
+        float diff = max(dot(N, L), 0.0);
+        vec3 diffuse = diff * lights[i].color * lights[i].intensity;
+
+        vec3 H = normalize(L + V);
+        float spec = pow(max(dot(N, H), 0.0), shininess);
+        vec3 specular = spec * lights[i].color * lights[i].intensity;
+
+        result += diffuse + specular;
+    }
+
+    out_Color = vec4(result * objectColor, 1.0);
+}
